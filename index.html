@@ -5,24 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Conference Time</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div
-      style="
-        display: grid;
-        grid-template-columns: repeat(2, minmax(250px, 1fr));
-        gap: 1rem;
-      "
-    >
+    <main class="container">
       <div>
         <p><strong>Your Time</strong></p>
-        <p id="your-time"></p>
+        <p class="time__content" id="your-time"></p>
       </div>
       <div>
         <p><strong>Conference Time</strong></p>
-        <p id="conference-time"></p>
+        <p class="time__content" id="conference-time"></p>
       </div>
-    </div>
+      <div>
+        <a href="https://ucengagingscience.org/workshop">
+          <h1>Workshop on Public Engagement with Science</h1>
+        </a>
+      </div>
+      <a href="https://ucengagingscience.org/"
+        ><img src="img/logo.svg" alt="UC PEWS Logo"
+      /></a>
+    </main>
     <script>
       function setTimes() {
         var confTime = new Date().toLocaleString([], {
@@ -31,8 +39,12 @@
 
         var localTime = new Date().toLocaleString([], {});
 
-        yourTime.textContent = "⌚" + " " + localTime;
-        conferenceTime.textContent = "⌚" + " " + confTime;
+        yourTime.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+      </svg> ${localTime}`;
+        conferenceTime.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+      </svg> ${confTime}`;
       }
       var yourTime = document.getElementById("your-time");
       var conferenceTime = document.getElementById("conference-time");
