@@ -23,9 +23,14 @@ body {
     hsl(351, 99%, 24%)
   );
   background-repeat: no-repeat;
-  padding: 2rem;
+  padding: 1rem;
 }
 
+@media (min-width: 768px) {
+  body {
+    padding: 2rem;
+  }
+}
 svg {
   height: 1em;
   width: 1em;
